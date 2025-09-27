@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Inspiration Generator for Weavers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-magic"></i> Fashion Inspiration Generator</h1>
+            <p class="subtitle">Discover trendy designs and patterns for modern weaving</p>
+        </header>
+
+        <main>
+            <div class="server-status">
+                <div class="status-section">
+                    <h3><i class="fas fa-server"></i> Server Status</h3>
+                    <div id="serverStatus" class="status-indicator">
+                        <i class="fas fa-circle"></i>
+                        <span>Checking server connection...</span>
+                    </div>
+                    <small>The backend server handles AI image generation securely</small>
+                </div>
+            </div>
+
+            <div class="inspiration-section">
+                <div class="prompt-section">
+                    <h3><i class="fas fa-lightbulb"></i> What kind of design inspiration do you need?</h3>
+                    
+                    <div class="quick-prompts">
+                        <h4>Quick Inspiration Categories:</h4>
+                        <div class="prompt-buttons">
+                            <button class="prompt-btn" data-prompt="Modern minimalist clothing design with geometric patterns suitable for handloom weaving">Minimalist Geometric</button>
+                            <button class="prompt-btn" data-prompt="Traditional ethnic wear with contemporary twist, featuring bold colors and modern silhouettes">Modern Traditional</button>
+                            <button class="prompt-btn" data-prompt="Sustainable fashion designs with natural textures and earth tones perfect for handwoven fabrics">Sustainable Fashion</button>
+                            <button class="prompt-btn" data-prompt="Bohemian style clothing with intricate patterns and flowing designs ideal for artisan weavers">Bohemian Chic</button>
+                            <button class="prompt-btn" data-prompt="Business casual wear with subtle patterns and professional aesthetics for handloom textiles">Business Casual</button>
+                            <button class="prompt-btn" data-prompt="Festival and celebration wear with vibrant colors and ornate patterns for special occasions">Festival Wear</button>
+                        </div>
+                    </div>
+
+                    <div class="custom-prompt">
+                        <label for="customPrompt">Or describe your own design idea:</label>
+                        <textarea id="customPrompt" rows="3" placeholder="E.g., 'Summer dress with floral patterns in pastel colors suitable for cotton weaving'"></textarea>
+                    </div>
+
+                    <button id="generateImage" class="btn-primary">
+                        <i class="fas fa-palette"></i> Generate Design Inspiration
+                    </button>
+                </div>
+
+                <div class="results-section">
+                    <div id="loadingSpinner" class="loading hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Creating your fashion inspiration...</p>
+                    </div>
+
+                    <div id="imageContainer" class="image-container hidden">
+                        <h3>Your Design Inspiration</h3>
+                        <img id="generatedImage" alt="Generated fashion design" />
+                        <div class="image-actions">
+                            <button id="downloadImage" class="btn-secondary">
+                                <i class="fas fa-download"></i> Download Image
+                            </button>
+                            <button id="generateAnother" class="btn-secondary">
+                                <i class="fas fa-refresh"></i> Generate Another
+                            </button>
+                        </div>
+                        <div class="prompt-used">
+                            <strong>Prompt used:</strong>
+                            <p id="usedPrompt"></p>
+                        </div>
+                    </div>
+
+                    <div id="errorMessage" class="error-message hidden">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p id="errorText"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3><i class="fas fa-info-circle"></i> Tips for Weavers</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <h4>Color Inspiration</h4>
+                        <p>Use generated images to identify trending color combinations that work well with natural fibers.</p>
+                    </div>
+                    <div class="tip">
+                        <h4>Pattern Analysis</h4>
+                        <p>Study the patterns and motifs in generated designs to create weaving drafts and templates.</p>
+                    </div>
+                    <div class="tip">
+                        <h4>Texture Ideas</h4>
+                        <p>Look for texture details that can be replicated using different weaving techniques and yarn types.</p>
+                    </div>
+                    <div class="tip">
+                        <h4>Market Trends</h4>
+                        <p>Keep generating designs regularly to stay updated with current fashion trends and consumer preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart"></i> for artisan weavers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
