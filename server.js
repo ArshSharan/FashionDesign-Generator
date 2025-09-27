@@ -6,7 +6,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
@@ -19,10 +19,12 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const SITE_URL = process.env.SITE_URL || 'http://localhost:3001';
 const SITE_NAME = process.env.SITE_NAME || 'Fashion Inspiration Generator';
 
+// More flexible API key handling for deployment
 if (!OPENROUTER_API_KEY && !OPENAI_API_KEY) {
-    console.error('❌ Either OPENROUTER_API_KEY or OPENAI_API_KEY environment variable is required!');
-    console.log('Please add to your .env file: OPENROUTER_API_KEY=your_openrouter_key_here');
-    process.exit(1);
+    console.warn('⚠️ No API keys configured. App will use free AI image generation only.');
+    console.log('To enable premium features, add environment variables:');
+    console.log('OPENROUTER_API_KEY=your_openrouter_key_here');
+    console.log('OPENAI_API_KEY=your_openai_api_key_here');
 }
 
 // Initialize OpenAI client
@@ -326,5 +328,8 @@ app.listen(PORT, () => {
         console.log('');
     }
 });
+
+// Export the app for Vercel
+module.exports = app;
 
 module.exports = app;
